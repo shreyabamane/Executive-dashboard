@@ -12,7 +12,8 @@ export function Dashboard() {
         const newWidget = {
             id:`${categoryId}-${Date.now()}`,
             name:widgetName,
-            text:widgetText
+            text:widgetText,
+            chartData:null
         };
         dispatch({type: 'ADD_WIDGET', payload: { categoryId, widget: newWidget}});
     };
@@ -26,13 +27,13 @@ export function Dashboard() {
       {categories.map(category => (
         <div key={category.id}>
             <h2>{category.name}</h2>
-            <MyChart />
             <button onClick={()=> handleAddWidget(category.id)}>+ Add Widget</button>
             <ul>
                 {category.widgets.map(widget => (
                     <li key={widget.id}>
                         <h3>{widget.name}</h3>
                         <p>{widget.text}</p>
+                        {widget.chartData && <MyChart chartData={widget.chartData} />}
                         <button onClick={()=> handleRemoveWidget(category.id, widget.id)}>Remove</button>
                     </li>
                 ))}

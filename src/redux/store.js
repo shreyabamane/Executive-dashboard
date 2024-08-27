@@ -1,6 +1,5 @@
 import { createStore } from "redux";
 
-
 const initialState = {
     categories: [
         {
@@ -8,32 +7,31 @@ const initialState = {
             name: 'CSPM Executive Dashboard',
             widgets: [
                 {
-                    id: '1-1',
+                    id: 'w1',
                     name: 'Widget 1',
-                    text: 'This is text for Widget 1'
-                },
-                {
-                    id: '1-2',
-                    name: 'Widget 2',
-                    text: 'This is text for Widget 2'
+                    text: 'This is text for Widget 1',
+                    chartData: {
+                        type: 'doughnut',
+                        data: {
+                            labels: ["Failed", "Warning", "Not available", "Pass"],
+                            datasets: [
+                                {
+                                    backgroundColor:["#8B0000", "#FF8C00", "#A9A9A9", "#228B22"],
+                                    data:[1689, 681, 36, 7253]
+                                }
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Cloud Account Risk Assessment'
+                                }
+                            }
+                        }
+                    }
                 }
-            ]
-        },
-
-        {
-            id: '2',
-            name: 'CWPP Dashboard',
-            widgets: [
-                {
-                    id: '2-1',
-                    name: 'Widget 1',
-                    text: 'This is text for Widget 1 in CWPP'
-                },
-                {
-                    id: '2-2',
-                    name: 'Widget 2',
-                    text: 'This is text for Widget 2 in CWPP'
-                }
+              
             ]
         }
     ]
