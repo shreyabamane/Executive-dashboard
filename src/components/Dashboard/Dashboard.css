@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.widget-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px; /* Adjust gap between grid items */
+    padding: 16px;
+}
+.widget-item{
+    background: #f9f9f9; /* Background color of grid items */
+    border: 1px solid #ddd; /* Border around grid items */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside grid items */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}

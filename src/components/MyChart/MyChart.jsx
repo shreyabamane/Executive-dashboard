@@ -7,30 +7,32 @@ const MyChart = ({ chartData }) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
-        const canvas = document.getElementById("myChart");
+        const canvas = chartRef.current;
         const ctx = canvas.getContext("2d");
 
         // Destroy previous chart instance if exists
-        if (chartRef.current) {
-            chartRef.current.destroy();
+        if (ctx.chartInstance) {
+            ctx.chartInstance.destroy();
         }
 
-       chartRef.current = new Chart(ctx, {
+       const newChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
         options: chartData.options
        });
 
+       ctx.chartInstance = newChart;
+
        return () => {
-        if (chartRef.current) {
-            chartRef.current.destroy();
+        if (ctx.chartInstance) {
+            ctx.chartInstance.destroy();
         }
        }
     }, [chartData]);
 
     return (
         <div style={{ width: "100%", maxWidth: "600px" }}>
-            <canvas id="myChart"></canvas>
+            <canvas ref={chartRef}></canvas>
         </div>
     );
 };
