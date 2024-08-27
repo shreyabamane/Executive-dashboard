@@ -4,11 +4,11 @@ const initialState = {
     categories: [
         {
             id: '1',
-            name: 'CSPM Executive Dashboard',
+            name: 'CNAPP Dashboard',
             widgets: [
                 {
                     id: 'w1',
-                    name: 'Widget 1',
+                    name: 'CSPM Executive Dashboard',
                     text: 'This is text for Widget 1',
                     chartData: {
                         type: 'doughnut',
